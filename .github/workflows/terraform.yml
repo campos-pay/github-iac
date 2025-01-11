@@ -28,9 +28,9 @@ jobs:
       - name: Download Private Modules Terraform 
         uses: actions/checkout@v4
         with:
-          repository: campos-pay/terraform-github-module
+          repository: campos-pay/devops-github-module
           token: ${{ secrets.TF_GITHUB_TOKEN }}
-          ref: 'dev'
+          # ref: 'dev'
 
       - name: Terraform Format
         id: fmt

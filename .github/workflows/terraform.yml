@@ -24,13 +24,14 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.0.0
-          
       - name: Download Private Modules Terraform 
-        uses: actions/checkout@v4
-        with:
-          repository: campos-pay/devops-github-module
-          token: ${{ secrets.TF_GITHUB_TOKEN }}
-          # ref: 'dev'
+        run: git config --global url."https://oauth2:${{ secrets.TF_GITHUB_TOKEN }}@github.com".insteadOf https://github.com
+      # - name: Download Private Modules Terraform 
+      #   uses: actions/checkout@v4
+      #   with:
+      #     repository: campos-pay/devops-github-module
+      #     token: ${{ secrets.TF_GITHUB_TOKEN }}
+      #     # ref: 'dev'
 
       - name: Terraform Format
         id: fmt

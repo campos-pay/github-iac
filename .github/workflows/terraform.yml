@@ -18,12 +18,19 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
+        uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.0.0
+          
+      - name: Download Private Modules Terraform 
+        uses: actions/checkout@v4
+        with:
+          repository: campos-pay/terraform-github-module
+          token: ${{ secrets.TF_GITHUB_TOKEN }}
+          ref: 'dev'
 
       - name: Terraform Format
         id: fmt

@@ -10,4 +10,5 @@ module "github_repo" {
   team_name = "devteam"
   repo_name = ["new-repository"]
   repo_description = "Description of the new repository"
+  protected_branches = "dev"
 }
